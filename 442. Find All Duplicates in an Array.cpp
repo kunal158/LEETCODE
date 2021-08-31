@@ -1,4 +1,25 @@
+//by negative method
 class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+        vector<int> ans;
+        for(int i=0;i<nums.size();i++){
+            int currnum = abs(nums[i])-1;
+            if(nums[currnum]<0) 
+                ans.push_back(currnum+1);
+            else 
+                nums[currnum] *= -1;
+        }
+        return ans;
+    }
+};
+
+
+
+
+//also by cyclic sort
+
+/*class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
         int i = 0, n = nums.size();
@@ -18,4 +39,4 @@ public:
         return ans;
         
     }
-};
+};                    */
